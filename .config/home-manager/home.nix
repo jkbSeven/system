@@ -8,18 +8,30 @@
 
 	programs.home-manager.enable = true;
 
+	nixpkgs.config.allowUnfreePredicate = pkg:
+		builtins.elem (pkgs.lib.getName pkg) [
+			"obsidian"
+		];
+
 	home.packages = with pkgs; [
 		git
 		neovim
 		zsh
 		bat
 		tmux
+		obsidian
+		fd  # for neovim plugins
+		ripgrep  # for neovim plugins
+		tree-sitter  # for neovim
 	];
 
 	programs.zsh = {
 		enable = true;
 		shellAliases = {
 			hm = "home-manager switch --flake ~/.config/home-manager#jkb";
+			gs = "git status";
+			l = "ls -la";
+			vim = "nvim";
 		};
 	};
 
@@ -39,7 +51,7 @@
 		enable = true;
 		package = null;
 		portalPackage = null;
-		
+
 		settings = {
 			"$mod" = "SUPER";
 
@@ -55,7 +67,9 @@
 			bind = [
 				"$mod, Q, killactive"
 				"$mod, T, exec, $terminal"
+				"$mod, F, exec, $fileManager"
 				"$mod, W, exec, firefox"
+				"$mod, D, exec, wofi --show run"
 			]
 			++ (
 			# workspaces
@@ -74,6 +88,12 @@
 				gaps_in = 5;
 				gaps_out = 10;
 				border_size = 1;
+			};
+
+			input = {
+				accel_profile = "flat";
+				# force_no_accel = true; # not recommended in Hyprland docs
+				sensitivity = 0;
 			};
 		};
 	};
