@@ -18,10 +18,15 @@
 
 	programs.zsh = {
 		enable = true;
-		syntaxHighlighting.enable = true;
 		shellAliases = {
 			hm = "home-manager switch --flake ~/.config/home-manager#jkb";
 		};
+	};
+
+	programs.zsh.oh-my-zsh = {
+		enable = true;
+		plugins = [ "git" ];
+		theme = "robbyrussell";
 	};
 
 	programs.git = {
