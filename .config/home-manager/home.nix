@@ -13,6 +13,7 @@
 		neovim
 		zsh
 		bat
+		tmux
 	];
 
 	programs.zsh = {
@@ -25,8 +26,8 @@
 
 	programs.git = {
 		enable = true;
-		settings.user.name = "jkb";
-		settings.user.email = "Jacob202@pm.me";
+		settings.user.name = "jkbSeven";
+		settings.user.email = "Jacob202@protonmail.com";
 	};
 
 	wayland.windowManager.hyprland = {
