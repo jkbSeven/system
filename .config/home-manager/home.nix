@@ -8,18 +8,13 @@
 
 	programs.home-manager.enable = true;
 
-	nixpkgs.config.allowUnfreePredicate = pkg:
-		builtins.elem (pkgs.lib.getName pkg) [
-			"obsidian"
-		];
-
 	home.packages = with pkgs; [
 		git
 		neovim
 		zsh
 		bat
 		tmux
-		obsidian
+		# obsidian - fails to run as expects opengl drivers in the Nix-used /run/opengl_..., but they are installed with pacman
 		fd  # for neovim plugins
 		ripgrep  # for neovim plugins
 		tree-sitter  # for neovim
