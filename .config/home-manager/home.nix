@@ -109,6 +109,15 @@
         )
       );
 
+      exec-once = [
+        "waybar"
+      ];
+
+      animation = [
+        "workspaces, 0"
+        "windows, 1, 1, default"
+      ];
+
       general = {
         gaps_in = 5;
         gaps_out = 10;
@@ -121,9 +130,6 @@
         sensitivity = 0;
       };
 
-      exec-once = [
-        "waybar"
-      ];
     };
   };
 
