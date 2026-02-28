@@ -34,7 +34,7 @@ debug "Script absolute path: ${SCRIPT_ABS_PATH?} (dir: ${SCRIPT_DIR_ABS_PATH?})"
 # --- Core logic ---
 
 DOT_LOCAL_BIN_FILES="tmux-sessionizer"
-DOT_CONFIG_DIRS="home-manager tmux"
+DOT_CONFIG_DIRS="home-manager tmux fontconfig"
 
 LOCAL_DOT_LOCAL_PATH="${HOME}/.local/bin"
 LOCAL_DOT_CONFIG_PATH="${HOME}/.config"
